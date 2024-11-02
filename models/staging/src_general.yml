@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: property_management
+    description: A clone of a Postgres application database.
+    database: raw
+    schema: property_management
+    tables:
+      - name: properties
+        description: Raw properties data.
+      - name: leases
+        description: Raw leases data.
+      - name: units
+        description: Raw units data.
+      - name: rental_applications
+        description: Raw rental_applications data.
+        
