@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: stg__leases
+    description: Staged leases data from our property management warehouse.
+    columns:
+      - name: id
+        description: The primary key for customers.
+        tests:
+          - unique
+          - not_null
+  - name: stg__properties
+    description: Staged properties data from our property management warehouse.
+    columns:
+      - name: id
+        description: The primary key for customers.
+        tests:
+          - unique
+          - not_null
+  - name: stg__rental_applications
+    description: Staged rental_applications data from our property management warehouse.
+    columns:
+      - name: id
+        description: The primary key for customers.
+        tests:
+          - unique
+          - not_null
+  - name: stg__units
+    description: Staged units data from our property management warehouse.
+    columns:
+      - name: id
+        description: The primary key for customers.
+        tests:
+          - unique
+          - not_null
+      - name: status
+        description: The status of the unit.
+        tests:
+          - accepted_values:
+              values:
+                - occupied
+                - rented
+                - vacant
+                - construction
+      - name: property_id
+        description: Foreign key to stg__properties.id.
+        tests:
+          - relationships:
+              to: ref('stg__properties')
+              field: id

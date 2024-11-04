@@ -16,15 +16,34 @@ sources:
     tables:
       - name: properties
         description: Raw properties data.
+        columns:
+        - name: id
+          description: The primary key for customers.
+          tests:
+            - unique
+            - not_null
       - name: leases
         description: Raw leases data.
         columns:
-          - name: id
-            tests:
-              - unique
-              - not_null
+        - name: id
+          description: The primary key for customers.
+          tests:
+            - unique
+            - not_null
       - name: units
         description: Raw units data.
+        columns:
+        - name: id
+          description: The primary key for customers.
+          tests:
+            - unique
+            - not_null
       - name: rental_applications
         description: Raw rental_applications data.
+        columns:
+        - name: id
+          description: The primary key for customers.
+          tests:
+            - unique
+            - not_null
         
