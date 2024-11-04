@@ -5,11 +5,24 @@ sources:
     description: A clone of a Postgres application database.
     database: raw
     schema: property_management
+    freshness:
+      warn_after:
+        count: 1
+        period: day
+      error_after:
+        count: 2
+        period: day
+    loaded_at_field: uploaded_at
     tables:
       - name: properties
         description: Raw properties data.
       - name: leases
         description: Raw leases data.
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
       - name: units
         description: Raw units data.
       - name: rental_applications
