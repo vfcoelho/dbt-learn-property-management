@@ -5,7 +5,7 @@ models:
     description: Staged leases data from our property management warehouse.
     columns:
       - name: id
-        description: The primary key for customers.
+        description: The primary key for leases.
         tests:
           - unique
           - not_null
@@ -13,7 +13,7 @@ models:
     description: Staged properties data from our property management warehouse.
     columns:
       - name: id
-        description: The primary key for customers.
+        description: The primary key for properties.
         tests:
           - unique
           - not_null
@@ -21,7 +21,7 @@ models:
     description: Staged rental_applications data from our property management warehouse.
     columns:
       - name: id
-        description: The primary key for customers.
+        description: The primary key for rental_applications.
         tests:
           - unique
           - not_null
@@ -29,12 +29,12 @@ models:
     description: Staged units data from our property management warehouse.
     columns:
       - name: id
-        description: The primary key for customers.
+        description: The primary key for units.
         tests:
           - unique
           - not_null
       - name: status
-        description: The status of the unit.
+        description: '{{ doc("unit_status") }}'
         tests:
           - accepted_values:
               values:
