@@ -12,7 +12,7 @@
         
     {%- endif -%}
 
-    {{ print("Running generate_schema_name: " ~ result_schema) }}
+    {{ print("generate_schema_name result: " ~ result_schema) }}
     {{ result_schema | trim }}
 
 {%- endmacro %}
