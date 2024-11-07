@@ -37,5 +37,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   property_management:
+    +schema: vfcoelho
     # Applies to all files under models/example/
     +materialized: table
