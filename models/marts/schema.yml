@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: fact_leases
+    description: Fact Leases.
+    latest_version: 2
+    access: public #access for this model is set to public
+    group: platform #this model belongs to the platform group and has the ability to modify it 
+    config:
+      contract:
+        enforced: true
+      on_schema_change: 'append_new_columns'
+    versions:
+      - v: 1
+        description: "a starter fact_leases model"
+      - v: 2
+        description: "adds a dummy column"
+    columns:
+      - name: LEASE_ID
+        description: LEASE_ID column
+        data_type: int
+      - name: PROPERTY_ID
+        description: PROPERTY_ID column
+        data_type: int
+      - name: UNIT_ID
+        description: UNIT_ID column
+        data_type: int
+      - name: RENTAL_APPLICATION_ID
+        description: RENTAL_APPLICATION_ID column
+        data_type: int
+      - name: UNIT_LEASES_COUNT
+        description: UNIT_LEASES_COUNT column
+        data_type: int
+      - name: DUMMY_COLUMN
+        description: DUMMY_COLUMN column
+        data_type: string
