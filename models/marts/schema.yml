@@ -9,12 +9,15 @@ models:
     config:
       contract:
         enforced: true
+<<<<<<< HEAD
       on_schema_change: 'append_new_columns'
     versions:
       - v: 1
         description: "a starter fact_leases model"
       - v: 2
         description: "adds a dummy column"
+=======
+>>>>>>> 39c37e994bb8d56e6844a1b6696ce7fb8a6c69a9
     columns:
       - name: LEASE_ID
         description: LEASE_ID column
@@ -31,6 +34,18 @@ models:
       - name: UNIT_LEASES_COUNT
         description: UNIT_LEASES_COUNT column
         data_type: int
+<<<<<<< HEAD
       - name: DUMMY_COLUMN
         description: DUMMY_COLUMN column
         data_type: string
+=======
+    versions:
+      - v: 1
+        description: "a starter fact_leases model"
+      - v: 2
+        description: "adds a dummy column"
+        columns:
+          - name: DUMMY_COLUMN
+            description: DUMMY_COLUMN column
+            data_type: string
+>>>>>>> 39c37e994bb8d56e6844a1b6696ce7fb8a6c69a9

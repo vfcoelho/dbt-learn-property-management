@@ -10,4 +10,8 @@ groups:
   - name: marketing
     owner:
       email: jen.baffleck@example.com
+<<<<<<< HEAD
       name: Jen Baffleck
+=======
+      name: Jen Baffleck
+>>>>>>> 39c37e994bb8d56e6844a1b6696ce7fb8a6c69a9
