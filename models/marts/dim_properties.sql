@@ -18,7 +18,7 @@ with
             u.bathrooms,
             u.square_feet,
             u.status,
-
+            p.created_at,
         from properties p
         inner join units u on u.property_id = p.id
     )
