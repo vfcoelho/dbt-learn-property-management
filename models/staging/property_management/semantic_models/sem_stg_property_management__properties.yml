@@ -1,0 +1,52 @@
+# code generated with dbt copilot
+
+semantic_models:
+- name: property_management_properties
+  description: This model extracts and prepares property data from the property management
+    source for further analysis. It includes essential details about each property,
+    such as its location, type, and construction year.
+  model: ref('stg_property_management__properties')
+  defaults:
+    agg_time_dimension: created_at
+  entities:
+  - name: property
+    type: primary
+    expr: id
+  dimensions:
+  - name: created_at
+    description: The timestamp when the property record was created in the source
+      system.
+    type: time
+    type_params:
+      time_granularity: day
+  - name: name
+    description: The name of the property.
+    type: categorical
+  - name: address
+    description: The street address of the property.
+    type: categorical
+  - name: city
+    description: The city where the property is located.
+    type: categorical
+  - name: state
+    description: The state where the property is located.
+    type: categorical
+  - name: zip_code
+    description: The postal code for the property's location.
+    type: categorical
+  - name: type
+    description: The type or category of the property, such as residential or commercial.
+    type: categorical
+  - name: year_built
+    description: The year the property was constructed.
+    type: categorical
+  - name: uploaded_at
+    description: The timestamp when the property data was uploaded to the system.
+    type: time
+    type_params:
+      time_granularity: day
+  measures:
+  - name: count_property
+    agg: count
+    create_metric: true
+    expr: id

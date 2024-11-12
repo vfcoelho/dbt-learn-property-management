@@ -1,0 +1,46 @@
+# code generated with dbt copilot
+models:
+  - name: stg_property_management__properties
+    description: This model extracts and prepares property data from the property management source for further analysis. It includes essential details about each property, such as its location, type, and construction year.
+    columns:
+      - name: id
+        description: A unique identifier for each property.
+        data_tests:
+          - unique
+          - not_null
+      - name: created_at
+        description: The timestamp when the property record was created in the source system.
+        data_tests:
+          - not_null
+      - name: name
+        description: The name of the property.
+        data_tests:
+          - not_null
+      - name: address
+        description: The street address of the property.
+        data_tests:
+          - not_null
+      - name: city
+        description: The city where the property is located.
+        data_tests:
+          - not_null
+      - name: state
+        description: The state where the property is located.
+        data_tests:
+          - not_null
+      - name: zip_code
+        description: The postal code for the property's location.
+        data_tests:
+          - not_null
+      - name: type
+        description: The type or category of the property, such as residential or commercial.
+        data_tests:
+          - not_null
+      - name: year_built
+        description: The year the property was constructed.
+        data_tests:
+          - not_null
+      - name: uploaded_at
+        description: The timestamp when the property data was uploaded to the system.
+        data_tests:
+          - not_null
