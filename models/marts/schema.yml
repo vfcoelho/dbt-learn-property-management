@@ -31,6 +31,15 @@ models:
       - v: 2
         description: "adds a dummy column"
         columns:
-          - name: DUMMY_COLUMN
-            description: DUMMY_COLUMN column
-            data_type: string
+          - name: start_date
+            description: start_date column
+            data_type: timestamp
+          - name: end_date
+            description: end_date column
+            data_type: timestamp
+          - name: completed
+            description: completed column
+            data_type: boolean
+          - name: rent
+            description: rent column
+            data_type: float
