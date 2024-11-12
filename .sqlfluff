@@ -1,0 +1,5 @@
+[sqlfluff]
+templater = dbt
+runaway_limit = 10
+max_line_length = 80
+exclude_rules = L003, L009

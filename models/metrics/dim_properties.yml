@@ -1,0 +1,72 @@
+semantic_models:
+  - name: dim_properties_semantics
+    description: semantic layer for diom properties
+    model: ref('dim_properties')
+    defaults:
+      agg_time_dimension: created_at
+    entities:
+      - name: unit
+        expr: unit_id
+        type: primary
+      - name: property
+        expr: id
+        type: foreign
+
+    dimensions: 
+      - name: property_name
+        type: categorical
+        expr: name
+      - name: status
+        type: categorical
+      - name: created_at
+        type: time
+        type_params:
+          time_granularity: day
+
+    measures:
+      - name: distinct_properties
+        agg: count_distinct
+        expr: id
+      - name: total_rent
+        agg: sum
+        expr: rent
+      - name: units
+        agg: count_distinct
+        expr: unit_id
+    
+metrics:
+  - name: total_rent
+    type: simple
+    label: total_rent
+    type_params:
+      measure: total_rent
+  - name: units
+    type: simple
+    label: units
+    type_params:
+      measure: total_rent
+  - name: properties_gross_profit
+    label: properties_gross_profit
+    type: derived
+    type_params:
+      expr: revenue - cost
+      metrics:
+        - name: total_rent
+          alias: revenue
+          filter: |
+            {{Dimension('unit__status')}} = 'rented'
+        - name: total_rent
+          alias: cost
+          filter: |
+            {{Dimension('unit__status')}} != 'rented'
+  - name: rent_per_units
+    label: rent_per_units 
+    type: ratio
+    type_params: 
+      numerator: total_rent
+      denominator: 
+        name: units
+        filter: |
+          {{ Metric('units', group_by=['property']) }}  
+
+      

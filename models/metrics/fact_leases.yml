@@ -1,0 +1,36 @@
+semantic_models:
+  - name: fact_leases_semantics
+    description: semantic layer for diom properties
+    model: ref('fact_leases',v=2)
+    defaults:
+      agg_time_dimension: start_date
+    entities:
+      - name: lease
+        expr: lease_id
+        type: primary
+      - name: property
+        expr: property_id
+        type: foreign
+      - name: unit
+        expr: unit_id
+        type: foreign
+    
+    dimensions: 
+      - name: is_completed
+        type: categorical
+        expr: completed
+      - name: start_date
+        type: time
+        type_params:
+          time_granularity: day
+    
+    measures:
+      - name: completed_revenue
+        agg: sum
+        expr: case when is_completed = true then rent else 0 end
+      - name: median_rent
+        agg: median
+        expr: rent
+    
+    # metrics:
+    #   - name 
