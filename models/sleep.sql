@@ -1,0 +1,1 @@
+select {{sleep(1)}} as slept_seconds
