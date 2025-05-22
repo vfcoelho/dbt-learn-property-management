@@ -1,0 +1,13 @@
+version: 2
+sources:
+- name: uploads
+  database: ANALYTICS
+  schema: DBT_VCOELHO_DEV
+  tables:
+  - name: tests_csv
+    columns:
+    - name: ANIMAL
+      data_type: TEXT
+    - name: BOOLEANO
+      data_type: BOOLEAN
+    identifier: VE_UPLOADS__A7391CC0E385FDDE54C78D98A6041819
