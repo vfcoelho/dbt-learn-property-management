@@ -5,3 +5,4 @@ dbt_packages/
 logs/
 
 .vscode/
+dbt_internal_packages/
